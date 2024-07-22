@@ -1,53 +1,49 @@
 import { translate } from '@vitalets/google-translate-api';
-import { listWordsTranslated } from './word.controllers.js';
-import Word from '../models/word.models.js';
-
-export const verifyWordEnglish = async(wordEnglish, wordPortuguese) => {
-
-    try {
-        const response = await translate(wordPortuguese, { from: 'pt', to: 'en' });
-        console.log(wordEnglish, response.text);
-        return wordEnglish.toUpperCase() === response.text.toUpperCase();
-    } catch (err) {
-        console.error(err);
-        return false;
-    }
-}
+import db from "../../config/db.js"
 
 export const translateWordEnglishToPortuguese = (req,res) => {
-    const { wordBody } = req.body;
-    if (!wordBody) {
-        return res.status(400).send('wordBody is required');
-    }
+    const { wordEnglish } = req.body;
+    const { id } = req.params;
 
-    translate(wordBody, { from: 'en', to: 'pt' })
+    if (!wordEnglish) 
+        return res.status(400).send('Palavra não digitada');
+    
+    translate(wordEnglish, { from: 'en', to: 'pt' })
     .then(response => {
-        let newWord = new Word (wordBody, response.text);
-        listWordsTranslated.push(newWord);
-
-        res.status(200).json({ translatedWord: response.text });
+        const query = "INSERT INTO translated_words (wordEnglish, wordPortuguese, id_user) VALUES (?,?,?)"
+        
+        db.query(query, [wordEnglish, response.text, id], (err, result) => {
+            if(err) {
+                return res.status(500).json({ error: 'Erro ao inserir palavra no banco de dados', palavra: response.text  });
+            }
+            res.status(200).json({ palavra: response.text });
+        })
     })
     .catch(err => {
-        res.status(500).send('Error translating word');
+        res.status(500).send('Erro ao traduzir palavra');
     });
 }
 
 export const translateWordPortugueseToEnglish = (req,res) => {
-    const { wordBody } = req.body;
+    const { wordPortuguese } = req.body;
+    const { id } = req.params;
 
-    if (!wordBody) {
-        return res.status(400).send('wordBody is required');
+    if (!wordPortuguese) {
+        return res.status(400).send('Palavra não digitada');
     }
-    console.log("oi 1")
-    translate(wordBody, { from: 'pt', to: 'en' })
+
+    translate(wordPortuguese, { from: 'pt', to: 'en' })
     .then(response => {
-        console.log("oi")
-        const newWord = new Word(response.text, wordBody);
-        listWordsTranslated.push(newWord);
+        const query = "INSERT INTO translated_words (wordEnglish, wordPortuguese, id_user) VALUES (?,?,?)"
         
-        res.status(200).json({ translatedWord: response.text });
+        db.query(query, [response.text, wordPortuguese, id], (err, result) => {
+            if(err) {
+                return res.status(500).json({ error: 'Erro ao inserir palavra no banco de dados', palavra: response.text  });
+            }
+            res.status(200).json({ palavra: response.text });
+        })
     })
     .catch(err => {
-        res.status(500).send('Error translating word');
+        res.status(500).send('Erro ao traduzir palavra');
     });
 }

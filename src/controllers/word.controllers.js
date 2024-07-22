@@ -1,43 +1,86 @@
-import Word from '../models/word.models.js';
-import { verifyWordEnglish } from './translation.controllers.js';
-
-export let listWordsToRemember = [];
-export let listWordsTranslated = [];
+import db from "../../config/db.js";
 
 export const saveNewWordEnglish = async (req, res) => {
     const { wordEnglish, wordPortuguese } = req.body;
+    const { id } = req.params;
 
-    if(wordEnglish && wordPortuguese && ( wordEnglish.length > 0 && wordPortuguese.length > 0 )) {
+    if(!wordEnglish || !wordPortuguese)
+        return res.status(400).send('Palavra não digitada');
 
-        try {
-            const result = await verifyWordEnglish(wordEnglish.toUpperCase(), wordPortuguese.toUpperCase())
-            console.log(result);
-            if(result) {
-                const newWord = new Word(wordEnglish, wordPortuguese);
-                listWordsToRemember.push(newWord);
-                res.status(201).send('Created with sucess');
-            } else {
-                return res.status(400).send('Invalid word or translation');
-            }
-        } catch(err) {
-            return res.status(500).send("Erro verifying word");
-        }
-    } else {
-        res.status(400).send('Invalid word or translation');
-    }
+    const query = "INSERT INTO remember_words (wordEnglish, wordPortuguese, id_user) VALUES (?,?,?)";
 
-}
+    db.query(query, [wordEnglish, wordPortuguese, id], (err, data) =>{
+        if (err) 
+            return res.status(500).json({ error: 'Erro ao salvar palavra no banco de dados' });
+        return res.status(201).json({message: 'Palavra salva com sucesso'})
+    });
+
+};
 
 export const getAllWordsToRemember = (req, res) => {
-    if(listWordsToRemember.length > 0)
-        res.status(200).json(listWordsToRemember);
-    else
-        res.status(400).send( 'Error, array empty');
-}
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const startIndex = (page - 1) * limit;
+    const { id } = req.params
+
+    const query = "SELECT id, wordEnglish, wordPortuguese, date FROM remember_words WHERE id_user = ? ORDER BY date ASC LIMIT ?,? ";
+    const totalRowsQuery = "SELECT COUNT(*) AS total_rows FROM users";
+
+    db.query(totalRowsQuery, (err, totalRowsData) => {
+        if (err) 
+            return res.status(500).json({ error: "Erro ao buscar total de palavras traduzidas" });
+    
+        const totalRows = totalRowsData[0].total_rows;
+
+        db.query(query, [id, startIndex, limit], (err, data) => {
+            if(err) 
+                return res.status(500).json({error: "Erro ao buscar palavras traduzidas"});
+    
+            if(data.length >= 0) {
+                const totalPages = Math.ceil(totalRows / limit);
+    
+                return res.status(200).json({
+                    totalPages,
+                    currentPage: page,
+                    results: data,
+                    next: page < totalPages ? page + 1 : null,
+                    previous: page > 1 ? page - 1 : null
+                });
+            };
+        });
+    });
+};
 
 export const getAllWordsTranslated = (req, res) => {
-    if(listWordsTranslated.length > 0)
-        res.status(200).json(listWordsTranslated);
-    else
-        res.status(400).send( 'Error, array empty');
-}
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const startIndex = (page - 1) * limit;
+    const { id } = req.params
+
+    const query = "SELECT id, wordEnglish, wordPortuguese, date FROM translated_words WHERE id_user = ? ORDER BY date ASC LIMIT ?,? ";
+    const totalRowsQuery = "SELECT COUNT(*) AS total_rows FROM users";
+
+    db.query(totalRowsQuery, (err, totalRowsData) => {
+        if (err) 
+            return res.status(500).json({ error: "Erro ao buscar total de palavras traduzidas" });
+    
+        const totalRows = totalRowsData[0].total_rows;
+
+        db.query(query, [id,startIndex, limit], (err, data) => {
+            if(err) 
+                return res.status(500).json({error: "Erro ao buscar palavras traduzidas"});
+            
+            if(data.length > 0) {
+                const totalPages = Math.ceil(totalRows / limit);
+    
+                return res.status(200).json({
+                    totalPages,
+                    currentPage: page,
+                    results: data,
+                    next: page < totalPages ? page + 1 : null,
+                    previous: page > 1 ? page - 1 : null
+                });
+            };
+        });
+    });
+};

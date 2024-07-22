@@ -3,8 +3,8 @@ import {  getAllWordsTranslated, getAllWordsToRemember, saveNewWordEnglish } fro
 
 const router = express.Router();
 
-router.get("/word/getTranslated",getAllWordsTranslated);
-router.get("/word/getRemember", getAllWordsToRemember);
-router.post("/word/saveRemember", saveNewWordEnglish)
+router.get("/word/getTranslated/:id",getAllWordsTranslated);
+router.get("/word/getRemember/:id", getAllWordsToRemember);
+router.post("/word/saveRemember/:id", saveNewWordEnglish);
 
 export default router;

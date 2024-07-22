@@ -14,7 +14,9 @@
   "description": "",
   "dependencies": {
     "@vitalets/google-translate-api": "^9.2.0",
+    "bcrypt": "^5.1.1",
     "express": "^4.19.2",
+    "mysql2": "^3.10.3",
     "nodemon": "^3.1.4"
   }
 }

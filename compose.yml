@@ -2,17 +2,20 @@ version: '3.8'
 
 services:
 
-  api:
-    build: ./
-    ports:
-      - "3333:3000"
-    depends_on:
-      - mysql
-
+  # api:
+  #   build: ./
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - mysql
+  #   entrypoint: ["./wait-for-it.sh", "mysql:3300", "--", "npm", "start"]
+    
   mysql:
     image: mysql:8.0.36
     container_name: mysql-container
     environment:
       MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./src/tables.sql:/docker-entrypoint-initdb.d/tables.sql
     ports:
       - "3300:3306"
