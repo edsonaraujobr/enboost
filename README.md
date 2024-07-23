@@ -2,9 +2,14 @@
 
 Enboost é uma API (Application Programming Interface) RESTful que disponibiliza rotas para o aprendizado do inglês.
 
-## Rotas 🎬
+## Como executar? 🎬
 
-![Screenshot from 2024-07-23 13-19-02](https://github.com/user-attachments/assets/1fafc7cb-198a-40f7-98c4-f66d6fa2371b)
+1. Crie uma pasta e digite git clone https://github.com/edsonaraujobr/api-enboost
+2. Entre na pasta api e digite docker compose up -d.
+3. Digite: cd src
+4. Digite: npm i
+5. Digite: npm run dev
+6. Pronto, agora é só testar as rotas :)
 
 ## Tecnologias Utilizadas 🖥
 
