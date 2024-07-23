@@ -1,6 +1,6 @@
 # Sobre 🔍
 
-Enboost é uma API (Application Programming Interface) RESTFul que disponibiliza rotas para o aprendizado do inglês.
+Enboost é uma API (Application Programming Interface) RESTful que disponibiliza rotas para o aprendizado do inglês.
 
 # Execução 🎬
 
