@@ -4,11 +4,11 @@ Enboost é uma API (Application Programming Interface) RESTful que disponibiliza
 
 ## Como executar? 🎬
 
-1. Crie uma pasta e digite git clone https://github.com/edsonaraujobr/api-enboost
-2. Entre na pasta api e digite docker compose up -d.
-3. Digite: cd src
-4. Digite: npm i
-5. Digite: npm run dev
+1. Crie uma pasta e digite "git clone https://github.com/edsonaraujobr/api-enboost"
+2. Entre na pasta api e digite "docker compose up -d"
+3. Digite "cd src"
+4. Digite "npm i"
+5. Digite "npm run dev"
 6. Pronto, agora é só testar as rotas :)
 
 ## Tecnologias Utilizadas 🖥
