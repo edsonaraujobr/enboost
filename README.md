@@ -1,8 +1,8 @@
-# Sobre 🔍
+# Sobre 
 
 Enboost é uma API (Application Programming Interface) RESTful que disponibiliza rotas para o aprendizado do inglês.
 
-## Como executar? 🎬
+## Como executar? 
 
 1. Crie uma pasta e digite "git clone https://github.com/edsonaraujobr/api-enboost"
 2. Entre na pasta api e digite "docker compose up -d"
@@ -11,13 +11,13 @@ Enboost é uma API (Application Programming Interface) RESTful que disponibiliza
 5. Digite "npm run dev"
 6. Pronto, agora é só testar as rotas :)
 
-## Tecnologias Utilizadas 🖥
+## Tecnologias Utilizadas 
 
 1. NodeJS ✅
 2. Express ✅
 3. PostMan ✅
 
-## Autor 🤓
+## Autor 
 
 <p align="center">
   <img width="200px" alt="Edson Araujo" title="Edson Araujo" src="https://avatars.githubusercontent.com/u/137104822?v=4" />
