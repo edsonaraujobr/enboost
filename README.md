@@ -1,8 +1,7 @@
 ## 📋 Projeto
 
-Este projeto foi desenvolvido como trabalho final para disciplina **Banco de Dados I** ministrada pela doscente **Maísa Soares Dos Santos Lopes** do curso de **Ciência da Computação**. 
-
-Intitulado **próximo**, é software que busca solucionar um problema real enfrentado pelos estudantes que consomem diariamente no Restaurante Universitário da UESB de Vitória da Conquista. <br>
+Enboost é uma API (Application Programming Interface) RESTful que disponibiliza rotas para o aprendizado do inglês.
+<br>
 
 ## 💻 Como usar
 
@@ -21,7 +20,7 @@ $ docker compose up --build
 $ docker compose down -v
 ```
 <br>
-Para acessar as endpoints recomendo utilizar o [Postman](https://www.postman.com/)
+Para acessar as endpoints recomendo utilizar o [Postman](https://postman.com/) 
 
 ## 👨‍💻 Tecnologias
 
