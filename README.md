@@ -20,6 +20,7 @@ $ docker compose up --build
 $ docker compose down -v
 ```
 <br>
+
 Para acessar as endpoints recomendo utilizar o [Postman](https://postman.com/) 
 
 ## 👨‍💻 Tecnologias
