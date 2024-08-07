@@ -11,7 +11,7 @@ Na sua linha de comando:
 
 ```bash
 # Clone esse repositório
-$ git clone https://github.com/edsonaraujobr/undefined_api
+$ git clone https://github.com/edsonaraujobr/api-enboost
 
 # Rode a aplicação via docker
 $ docker compose up --build
