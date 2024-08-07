@@ -1,39 +1,39 @@
-# Sobre 
+## 📋 Projeto
 
-Enboost é uma API (Application Programming Interface) RESTful que disponibiliza rotas para o aprendizado do inglês.
+Este projeto foi desenvolvido como trabalho final para disciplina **Banco de Dados I** ministrada pela doscente **Maísa Soares Dos Santos Lopes** do curso de **Ciência da Computação**. 
 
-## Como executar? 
+Intitulado **próximo**, é software que busca solucionar um problema real enfrentado pelos estudantes que consomem diariamente no Restaurante Universitário da UESB de Vitória da Conquista. <br>
 
-1. Crie uma pasta e digite "git clone https://github.com/edsonaraujobr/api-enboost"
-2. Entre na pasta api e digite "docker compose up -d"
-3. Digite "cd src"
-4. Digite "npm i"
-5. Digite "npm run dev"
-6. Pronto, agora é só testar as rotas :)
+## 💻 Como usar
 
-## Tecnologias Utilizadas 
+Para clonar e rodar essa aplicação você precisará do [Git](https://git-scm.com) e [Docker](https://www.docker.com/). 
+<br>
+Na sua linha de comando:
 
-1. NodeJS ✅
-2. Express ✅
-3. PostMan ✅
+```bash
+# Clone esse repositório
+$ git clone https://github.com/edsonaraujobr/software-ru
 
-## Autor 
+# Rode a aplicação via docker
+$ docker compose up --build
 
-<p align="center">
-  <img width="200px" alt="Edson Araujo" title="Edson Araujo" src="https://avatars.githubusercontent.com/u/137104822?v=4" />
+# Para encerrar a aplicação
+$ docker compose down -v
+```
+<br>
+Para acessar as endpoints recomendo utilizar o [Postman](https://www.postman.com/)
 
-  <h3 align="center">Edson A. S. Neto</h3>
+## 👨‍💻 Tecnologias
 
-  <p align="center">
-    Full stack developer | Computer Science Student
-  </p>
-</p>
+Essas são as tecnologias utilizadas nesse projeto
 
-<div align="center">
+**Backend:** [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/pt-br/), [MySQL](https://www.mysql.com/). <br>
 
-[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-1f6feb?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/vhmarcal/)](https://www.linkedin.com/in/edsonaraujo2003/)
+## 📝 License
 
-</div>
+Este projeto está sob a licença MIT. Consulte o [LICENSE](https://github.com/edsonaraujobr/api-enboost/blob/main/LICENSE) para obter detalhes.
+
+
 
 
 
