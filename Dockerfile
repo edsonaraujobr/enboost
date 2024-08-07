@@ -1,13 +1,16 @@
-FROM node:latest
+FROM node:18-alpine
 
 WORKDIR /api
 
+COPY package*.json ./
+RUN npm install
 COPY . .
 
-RUN rm -rf node_modules
+RUN apk add --no-cache curl \
+    && curl -L https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz \
+    | tar -C /usr/local/bin -xz
 
-RUN npm install
+EXPOSE 3030
 
-CMD [ "npm","start"]
+CMD ["dockerize", "-wait", "tcp://mysql-container:3306", "-timeout", "60s", "npm", "start"]
 
-EXPOSE 3000

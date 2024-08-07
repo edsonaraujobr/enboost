@@ -1,4 +1,4 @@
-import db from "../../config/db.js"
+import db from "../database/db.js"
 import bcrypt from "bcrypt";
 const saltRounds = 10;
 

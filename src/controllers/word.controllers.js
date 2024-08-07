@@ -1,4 +1,4 @@
-import db from "../../config/db.js";
+import db from "../database/db.js"
 
 export const saveNewWordEnglish = async (req, res) => {
     const { wordEnglish, wordPortuguese } = req.body;

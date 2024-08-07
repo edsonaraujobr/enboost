@@ -1,11 +1,11 @@
 import mysql from 'mysql2';
 
 const db = mysql.createConnection({
-  host: 'localhost', 
-  user:'root',
-  password:'root',
-  database:'enboost',
-  port: 3300
+  host: "mysql-container",
+  user: "root",
+  password: "root",
+  database: "enboost",
+  port: 3306
 });
 
 db.connect((err) => {

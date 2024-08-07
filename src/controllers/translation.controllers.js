@@ -1,5 +1,5 @@
 import { translate } from '@vitalets/google-translate-api';
-import db from "../../config/db.js"
+import db from "../database/db.js"
 
 export const translateWordEnglishToPortuguese = (req,res) => {
     const { wordEnglish } = req.body;
