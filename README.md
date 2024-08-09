@@ -1,37 +1,39 @@
-## 📋 Projeto
+## 📋 Project
 
-Enboost é uma API (Application Programming Interface) RESTful que disponibiliza rotas para o aprendizado do inglês.
+Enboost it's an API Restful that provides routes to learn english
 <br>
 
-## 💻 Como usar
 
-Para clonar e rodar essa aplicação você precisará do [Git](https://git-scm.com) e [Docker](https://www.docker.com/). 
+## 💻 How to use
+
+To clone and run this application you need to have [Git](https://git-scm.com) and [Docker](https://www.docker.com/) installed on your computer
+
 <br>
-Na sua linha de comando:
+In your command line:
 
 ```bash
-# Clone esse repositório
-$ git clone https://github.com/edsonaraujobr/api-enboost
+# Clone the repository
+$ git clone https://github.com/edsonaraujobr/undefined_api
 
-# Rode a aplicação via docker
+# Run the application through docker
 $ docker compose up --build
 
-# Para encerrar a aplicação
+# To close the application
 $ docker compose down -v
 ```
 <br>
 
-Para acessar as endpoints recomendo utilizar o [Postman](https://postman.com/) 
+To access the endpoints I recommend using the [Postman](https://postman.com/) 
 
-## 👨‍💻 Tecnologias
+## 👨‍💻 Technologies
 
-Essas são as tecnologias utilizadas nesse projeto
+These are the technologies used in this project
 
 **Backend:** [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/pt-br/), [MySQL](https://www.mysql.com/). <br>
 
 ## 📝 License
 
-Este projeto está sob a licença MIT. Consulte o [LICENSE](https://github.com/edsonaraujobr/api-enboost/blob/main/LICENSE) para obter detalhes.
+This project are is under the MIT license. See the [LICENSE](https://github.com/edsonaraujobr/api-enboost/blob/main/LICENSE) to get more details.
 
 
 
