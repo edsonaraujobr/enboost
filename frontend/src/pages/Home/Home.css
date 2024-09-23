@@ -1,0 +1,68 @@
+
+.body {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(22, 22, 22);
+    width: 100vw;
+    height: 100vh;
+    color: white;
+}
+
+.title {
+    font-size: 100px;
+    color: #11b883;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-input-save-word {
+    display: flex;
+    gap: 5px;
+}
+
+.main-input {
+    width: 500px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.main-save-button {
+    background-color: white;
+    color: #07694a;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.main-save-button:hover {
+    background-color: #07694a;
+    color: white;
+}
+
+.main-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.image {
+    width: 280px;
+    border-radius: 100%;
+}
