@@ -3,7 +3,7 @@ import { translateWordEnglishToPortuguese, translateWordPortugueseToEnglish } fr
 
 const router = express.Router();
 
-router.post("/translation/EN-PT/:id", translateWordEnglishToPortuguese);
-router.post("/translation/PT-EN/:id", translateWordPortugueseToEnglish);
+router.post("/translation/EN-PT", translateWordEnglishToPortuguese);
+router.post("/translation/PT-EN", translateWordPortugueseToEnglish);
 
 export default router;

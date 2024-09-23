@@ -25,6 +25,7 @@
 .main-input-save-word {
     display: flex;
     gap: 5px;
+    flex-direction: column;
 }
 
 .main-input {
@@ -56,11 +57,6 @@
     flex-direction: column;
 }
 
-.main-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
 
 .image {
     width: 280px;
