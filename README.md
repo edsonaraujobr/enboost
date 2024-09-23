@@ -1,6 +1,6 @@
 ## 📋 Project
 
-Enboost it's an API Restful that provides routes to learn english
+Enboost it's an project full stack that help anyone to learn english
 <br>
 
 
@@ -13,7 +13,7 @@ In your command line:
 
 ```bash
 # Clone the repository
-$ git clone https://github.com/edsonaraujobr/undefined_api
+$ git clone https://github.com/edsonaraujobr/enboost
 
 # Run the application through docker
 $ docker compose up --build
@@ -23,13 +23,14 @@ $ docker compose down -v
 ```
 <br>
 
-To access the endpoints I recommend using the [Postman](https://postman.com/) 
+You can acess the endpoints locally with link: http://localhost:9000
 
 ## 👨‍💻 Technologies
 
 These are the technologies used in this project
 
 **Backend:** [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/pt-br/), [MySQL](https://www.mysql.com/). <br>
+**Frontend:** [ReactJS](https://react.dev/), [Vite](https://vitejs.dev/).
 
 ## 📝 License
 
