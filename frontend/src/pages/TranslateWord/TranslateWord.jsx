@@ -87,16 +87,19 @@ export function TranslateWord() {
           </div>
         )}
 
-        <div className="translated-words">
-          <h3>Palavras Traduzidas Anteriormente:</h3>
-          <ul>
-            {translatedWords.map((item) => (
-              <li key={item.id}>
-                {item.wordEnglish} - {item.wordPortuguese}
-              </li>
-            ))}
-          </ul>
-        </div>
+        { translatedWords > 0 ? (
+          <div className="translated-words">
+            <h3>Palavras Traduzidas Anteriormente:</h3>
+            <ul>
+              {translatedWords.map((item) => (
+                <li key={item.id}>
+                  {item.wordEnglish} - {item.wordPortuguese}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : <></>}
+
       </section>
     </main>
   );

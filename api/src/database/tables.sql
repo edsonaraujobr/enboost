@@ -22,3 +22,11 @@ CREATE TABLE IF NOT EXISTS remember_words (
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+INSERT INTO users (full_name, email, password) 
+VALUES 
+('John Doe', 'john.doe@example.com', 'senha123'),
+('Jane Smith', 'jane.smith@example.com', 'password456'),
+('Carlos Silva', 'carlos.silva@example.com', 'segredo789'),
+('Maria Oliveira', 'maria.oliveira@example.com', 'pass12345'),
+('Emily Johnson', 'emily.johnson@example.com', 'senha987');
+

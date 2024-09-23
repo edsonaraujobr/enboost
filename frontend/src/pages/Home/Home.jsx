@@ -30,6 +30,7 @@ export function Home() {
                 </div>
                 <img src={image} alt="Pesquise" className="image" />
             </main>
+            { users.length > 0 ? (
             <footer className="footer">
                 <h3>Usuários que já usaram o Enboost:</h3>
                 <ul>
@@ -38,6 +39,8 @@ export function Home() {
                     ))}
                 </ul>
             </footer>
+            ) : <></>}
+
         </div>
     );
 }

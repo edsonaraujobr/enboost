@@ -80,6 +80,7 @@ export function FlashCard() {
                     )}
                 </section>
 
+                { savedWords > 0 ? (
                 <footer className="footer">
                     <h3>Palavras Salvas:</h3>
                     <ul>
@@ -90,6 +91,8 @@ export function FlashCard() {
                         ))}
                     </ul>
                 </footer>
+                ) : <></>}
+
             </main>
         </>
     );
