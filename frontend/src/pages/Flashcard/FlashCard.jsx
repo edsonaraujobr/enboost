@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Header } from "../../components/Header";
 import axios from "axios";
+import "./FlashCard.css"
 
 export function FlashCard() {
     const [wordEnglish, setWordEnglish] = useState("");
@@ -12,7 +13,8 @@ export function FlashCard() {
         const fetchSavedWords = async () => {
             try {
                 const response = await axios.get("http://localhost:3030/word/getRemember");
-                setSavedWords(response.data); 
+                setSavedWords(response.data.results); 
+                console.log("savedWords", response.data.results)
             } catch (error) {
                 console.error("Erro ao buscar palavras salvas:", error);
             }
@@ -24,6 +26,7 @@ export function FlashCard() {
     const handleTranslate = async () => {
         try {
             let response;
+            console.log(wordEnglish, wordPortuguese)
             if (wordEnglish.length > 0 && wordPortuguese.length > 0) {
                 response = await axios.post("http://localhost:3030/word/saveRemember", {
                     wordPortuguese: wordPortuguese,
@@ -31,14 +34,24 @@ export function FlashCard() {
                 });
             }
 
-            if (response && response.data.translation) {
-                setTranslation(response.data.translation);
+            if (response ) {
+                setSavedWords(prevWords => [
+                    ...prevWords,
+                    { wordEnglish, wordPortuguese }
+                ]);
+                cleanInputs();
+            } else {
+                console.log("error")
             }
         } catch (error) {
             alert("Erro ao salvar palavra: " + error);
         }
     };
 
+    const cleanInputs = () => {
+        setWordEnglish("")
+        setWordPortuguese("")
+    }
     return (
         <>
             <main className="body">
@@ -80,17 +93,17 @@ export function FlashCard() {
                     )}
                 </section>
 
-                { savedWords > 0 ? (
-                <footer className="footer">
-                    <h3>Palavras Salvas:</h3>
-                    <ul>
-                        {savedWords.map((word, index) => (
-                            <li key={index}>
-                                {word.wordEnglish} - {word.wordPortuguese}
-                            </li>
-                        ))}
-                    </ul>
-                </footer>
+                {savedWords.length > 0 ? (
+                    <footer className="footer">
+                        <h3>Palavras Salvas:</h3>
+                        <ul>
+                            {savedWords.map((word, index) => (
+                                <li key={index}>
+                                    {word.wordEnglish} - {word.wordPortuguese}
+                                </li>
+                            ))}
+                        </ul>
+                    </footer>
                 ) : <></>}
 
             </main>

@@ -9,8 +9,9 @@ export function Home() {
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get("http://localhost:3030/user/getAllUsers");
-            setUsers(response.data); 
+            const response = await axios.get("http://localhost:3030/getAllUsers");
+            setUsers(response.data.results); 
+            console.log(response.data.results)
         } catch (error) {
             console.error("Erro ao buscar usuários:", error);
         }
@@ -33,7 +34,7 @@ export function Home() {
             { users.length > 0 ? (
             <footer className="footer">
                 <h3>Usuários que já usaram o Enboost:</h3>
-                <ul>
+                <ul className="footer-ul">
                     {users.map((user) => (
                         <li key={user.id}>{user.full_name}</li>
                     ))}

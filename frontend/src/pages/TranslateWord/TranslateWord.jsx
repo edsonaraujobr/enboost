@@ -87,8 +87,9 @@ export function TranslateWord() {
           </div>
         )}
 
-        { translatedWords > 0 ? (
-          <div className="translated-words">
+      </section>
+      { translatedWords.length > 0 ? (
+          <footer className="footer">
             <h3>Palavras Traduzidas Anteriormente:</h3>
             <ul>
               {translatedWords.map((item) => (
@@ -97,10 +98,8 @@ export function TranslateWord() {
                 </li>
               ))}
             </ul>
-          </div>
+          </footer>
         ) : <></>}
-
-      </section>
     </main>
   );
 }
