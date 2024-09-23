@@ -1,6 +1,6 @@
 ## 📋 Project
 
-Enboost it's an project full stack that help anyone to learn english
+Enboost it's a project full stack that help anyone to learn english
 <br>
 
 
